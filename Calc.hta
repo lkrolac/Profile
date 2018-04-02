@@ -1,0 +1,253 @@
+<html class="html" lang="ru-RU">
+<head>
+    <title>Калькулятор Маркетинга</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+
+      <HTA:APPLICATION 
+    APPLICATIONNAME="Calculator"
+    scroll="no"
+  >
+
+   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+   <script language=javascript>
+var winWidth=960; // ширина окна
+var winHeight=600; // высота окна
+// изменяем размер
+window.resizeTo(winWidth, winHeight);
+
+// окно в центр экрана
+var winPosX=screen.width/2-winWidth/2;
+var winPosY=screen.height/2-winHeight/2;
+window.moveTo(winPosX, winPosY);
+</script>
+
+<script>
+  $(function() {
+    $( "#slider-range-min" ).slider({
+      range: "min",
+      value: 2,
+      min: 1,
+      max: 40,
+      slide: function( event, ui ) {
+        $( "#inpZ" ).val( ui.value );
+      }
+    });
+    $( "#inpZ" ).val( $( "#slider-range-min" ).slider( "value" ) );
+  });
+
+  $(function() {
+    $( "#slider-range-min2" ).slider({
+      range: "min",
+      value: 22,
+      min: 1,
+      max: 1200,
+      slide: function( event, ui ) {
+        $( "#inpA" ).val( ui.value );
+      }
+    });
+    $( "#inpA" ).val( $( "#slider-range-min2" ).slider( "value" ) );
+  });
+
+    $(function() {
+    $( "#slider-range-min3" ).slider({
+      range: "min",
+      value: 20,
+      min: 1,
+      max: 100,
+      slide: function( event, ui ) {
+        $( "#inpB" ).val( ui.value );
+      }
+    });
+    $( "#inpB" ).val( $( "#slider-range-min3" ).slider( "value" ) );
+  });
+
+    $(function() {
+    $( "#slider-range-min4" ).slider({
+      range: "min",
+      value: 20,
+      min: 1,
+      max: 1000,
+      slide: function( event, ui ) {
+        $( "#inpX" ).val( ui.value );
+      }
+    });
+    $( "#inpX" ).val( $( "#slider-range-min4" ).slider( "value" ) );
+  });
+
+    $(function() {
+    $( "#slider-range-min5" ).slider({
+      range: "min",
+      value: 20000,
+      min: 0,
+      max: 1000000,
+      step: 1000,
+      slide: function( event, ui ) {
+        $( "#inpY" ).val( ui.value );
+      }
+    });
+    $( "#inpY" ).val( $( "#slider-range-min5" ).slider( "value" ) );
+  });
+  </script>
+
+   <style type="text/css">
+   body {
+    font-family: "Open Sans";
+   }
+   input {
+        border: 2px solid #d3d3d3;
+        padding: 5px;
+        font-family: "Open Sans";
+    }
+    button {
+      background: #ba4242;
+      color: #fff;
+      display: inline-block;
+      padding: 8px 30px 8px;
+      border: none;
+      font-family: "Open Sans";
+      font-size: 100%;
+      outline: none;    
+    }
+    .blocks {
+      min-height: 395px;
+      max-width: 270px;
+    }
+
+    @media (max-width: 959px) {
+      .blocks {
+        max-width: 100%;
+        min-height: 0;
+      }
+      .miniblocks {
+        padding-left: 12px;
+        padding-right: 13px;
+      }
+    }
+    </style>
+
+</head>
+<body>
+
+    <div>
+      <h2>Калькулятор Маркетинга</h2>
+      <h3>Расчет прибыли и вложений в рекламу | Расчет ROI:</h3>
+
+      <div style="background: #34495e; float: left; color: #fff; height: 360px;">
+      <div class="blocks" style="float: left; width: 290px; margin-left: 15px; padding-top: 15px;">
+      <h3>Введите значения:</h3>
+      <div style="background: #34495e; color: #fff; padding: 10px; margin-bottom: 10px;">
+      <span>Сколько Вы хотите в месяц продаж от рекламы?</span>
+    <input type="text" id="inpX" style="background: #fff; width: 70px; font-size: 100%; border: 0;">
+      <div id="slider-range-min4" style="margin-top: 10px; width: 250px;"></div>
+      <!-- <input id="inpX" type="text" />--></div>
+
+        <div style="background: #34495e; color: #fff; padding: 10px; margin-bottom: 10px;">
+      <span>Какую прибыль (маржу) Вы получаете от одной продажи/сделки?</span>
+    <input type="text" id="inpY" style="background: #fff; width: 95px; font-size: 100%; border: 0;">
+      <div id="slider-range-min5" style="margin-top: 10px; width: 250px;"></div>
+      <!-- <input id="inpY" type="text" />--></div>
+
+        <p><button id="btnRun">Рассчитать</button></p>
+        </div>
+
+      <div style="float: left; width: 300px; margin-left: 25px; margin-bottom: 30px; padding-top: 15px;">
+        <h3>Пункты для опытных пользователей</h3>
+
+        <div class="blocks" style="background: #34495e; color: #fff; padding-left: 10px; margin-bottom: 10px;"><span>Конверсия сайта:
+    <input type="text" id="inpZ" style="background: #34495e; color: #fff; border:0; width: 50px; font-size: 100%;"> %</span>
+      <div id="slider-range-min" style="margin-top: 10px; width: 250px;"></div>
+      <!-- <input id="inpZ" type="range" value="2%"/><br>--></div>
+
+        <div style="background: #34495e; color: #fff; padding-left: 10px; margin-bottom: 10px;"><span>Ср.цена за клик: <input type="text" id="inpA" style="background: #34495e; color: #fff; border:0; width: 50px; font-size: 100%;"></span>
+      <div id="slider-range-min2" style="margin-top: 10px; width: 250px;"></div>
+      <!-- <input id="inpA" type="text" style="border:0;"><br>--></div>
+
+        <div style="background: #34495e; color: #fff; padding-left: 10px; margin-bottom: 10px;"><span>Конверсия оператора: <input type="text" id="inpB" style="background: #34495e; color: #fff; border:0; width: 50px; font-size: 100%;"> %</span>
+      <div id="slider-range-min3" style="margin-top: 10px; padding-bottom: 10px; width: 250px;"></div>          
+        <!-- <input id="inpB" type="text" value="20%"/>--></div><br />
+
+        <div style="background: #ba4242; color: #fff; padding: 10px; margin-bottom: 10px; margin-top: 10px ;width: 270;">
+        <span>Целевые заявки в месяц: </span>
+        <span id="spnResult"></span><br>
+        <span>Посетители сайта в месяц: </span>
+        <span id="spnResult2"></span>
+        </div>
+        </div>
+        </div>
+
+        <div class="blocks" style="float: left; background: #ba4242; color: #fff; padding: 15px; width: 270px; height: 360px;" >
+        <div class="miniblocks" style="float: left; width: 270px;"><h3>Доход и расход:</h3>
+    <span id="spnResult3"></span> <span> - общая прибыль от продаж в месяц</span><br>
+        <span id="spnResult4" style="font-weight: bold; color: #ffff00;"></span> <span> - объем вложений (расходов) в рекламу в месяц</span><br>
+        
+        <span id="spnResult5" style="font-weight: bold; color: #ffff00;"></span>
+        <span> - чистая прибыль от рекламы в месяц</span><br>
+        </div>
+
+        <div class="miniblocks" style="float: left; max-width: 270px;">
+        <h3>ROI:</h3>
+        <span id="spnResult7" style="font-weight: bold; color: #ffff00;"></span> дней <span>- время, за которое Вы вернете средства, вложенные в рекламу</span><br>
+        
+        <span id="spnResult6"></span>% <span>- процент возвратности вложений в рекламу<br></span>
+        </div>
+        </div>
+        
+
+        <div style="clear: both"></div>
+        <div style="color: #888; font-size: 80%; font-style: italic; margin: 20px;">* результаты калькулятора являются аналитическими и предназначены для разработки маркетинговой стратегии рекламной кампании.</div>
+        <div style="color: #888; font-size: 80%; font-style: italic; margin: 20px;">Автор: <a href="mailto:olxolac@gmail.com">Аксан Олег</a> | Сайт: LKR / LKR</div>
+    </div>
+
+<script>
+function calculate(){
+    var inpX = document.getElementById('inpX');
+    var inpY = document.getElementById('inpY');
+    var inpZ = document.getElementById('inpZ');
+    var inpA = document.getElementById('inpA');
+    var inpB = document.getElementById('inpB');
+    var spnResult = document.getElementById('spnResult');
+    var x = parseFloat(inpX.value);//кол-во продаж в месяц
+    var y = parseFloat(inpY.value);//маржа от продажи
+    var z = parseFloat(inpZ.value);//конв.сайта
+    var a = parseFloat(inpA.value);//цена за клик
+    var b = parseFloat(inpB.value);//конв.оператора
+    var c = 100/b;//конв.оператора в соотношении
+    var d = 100/z;//конв.сайта в соотношении
+    var h = c * x;//формула целевых заявок
+    var r = parseInt(h, 10);
+    var i = r * d;//формула посетителей
+    var q = parseInt(i, 10);
+    var o = x * y;//формула общая маржа
+    var w = a * q;//формула расходов на рекламу
+    var n = o - w;//формула чистой прибыли от рекламы
+    var t = o - w;//формула ROI коэффициент окупаемости
+    var s = t / w;
+    var g = s * 100;
+    var m = parseInt(g, 10);
+    var e = 30 * w;//формула ROI срок окупаемости
+    var f = e / o;
+    var p = parseInt(f, 10);
+    spnResult.innerHTML =  r;//итог целевых заявок
+    spnResult2.innerHTML =  q;//итог посетителей
+    spnResult3.innerHTML =  o;//итог общая маржа
+    spnResult4.innerHTML =  w;//итог расходы на рекламу
+    spnResult5.innerHTML =  n;//итог чистой прибыли от рекламы
+    spnResult6.innerHTML =  m;//ROI коэффициент окупаемости
+    spnResult7.innerHTML =  p;//ROI срок окупаемости
+}
+
+window.onload = function(){
+    var btnRun = document.getElementById('btnRun');
+    btnRun.onclick = calculate;
+}
+</script>
+
+<!-- Автор: Аксан Олег
+olxolac@gmail.com
+При использовании калькулятора запрещено удалять этот комментарий, в остальном можете изменять, дополнять, распространять и без указания ссылок на сайте -->
+
+</body>
+</html>
